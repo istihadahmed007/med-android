@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const displayName = profile?.full_name || AuthService.getCurrentUser()?.email?.split('@')[0] || 'User';
 
   return (
-    <header className="w-full px-4 sm:px-8 pt-4 sm:pt-6 pb-2 max-w-[1440px] mx-auto z-40 relative">
+    <header className="w-full px-4 sm:px-8 pt-[calc(1rem+env(safe-area-inset-top,0px))] sm:pt-[calc(1.5rem+env(safe-area-inset-top,0px))] pb-2 max-w-[1440px] mx-auto z-40 relative">
       <div className="flex items-center justify-between gap-4">
         {/* Left: Turquoise 3D Cross Badge & Brand MEDX */}
         <div className="flex items-center gap-6 sm:gap-8 lg:gap-10">

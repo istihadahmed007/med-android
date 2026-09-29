@@ -12,9 +12,17 @@
     "preview": "vite preview",
     "test:across-books": "node --test tests/across-books.test.mjs",
     "test:textbook-library": "node --test tests/textbook-library.test.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "cap": "cap",
+    "cap:sync": "cap sync android"
   },
   "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/browser": "^6.0.4",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/keyboard": "^6.0.3",
+    "@capacitor/status-bar": "^6.0.2",
     "@supabase/supabase-js": "^2.117.1",
     "canvas-confetti": "^1.9.2",
     "clsx": "^2.1.0",
@@ -27,6 +35,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.2.0",
     "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",

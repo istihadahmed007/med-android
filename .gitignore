@@ -37,4 +37,25 @@ scratch/
 /medical-videos/
 *.xlsx
 
+# Android build outputs & Gradle cache
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.idea/
+*.apk
+*.aab
+
+# Agent metadata
+.agent/
+.agents/
+.gemini/
+.gsd/
+GSD-STYLE.md
+PROJECT_RULES.md
+VERSION
+adapters/
+model_capabilities.yaml
+scripts/
+
 

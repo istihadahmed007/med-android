@@ -16,7 +16,8 @@ import {
   CARDIOVASCULAR_PILOT_CASES 
 } from '../data/cardiovascularPilotData';
 
-const API_BASE = '/api';
+const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+const API_BASE = API_ORIGIN ? `${API_ORIGIN}/api` : '/api';
 
 /**
  * Safely fetches and parses JSON only if Content-Type includes application/json and response is OK.

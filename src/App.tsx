@@ -11,6 +11,7 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { AuthService } from './services/authService';
 import { AuthModal, AuthModalMode } from './components/navigation/AuthModal';
 import { ShieldAlert } from 'lucide-react';
+import { MobileService } from './services/mobileService';
 
 // Core Navigation Hubs
 import { DashboardView } from './components/home/DashboardView';
@@ -128,6 +129,34 @@ export const App: React.FC = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  // Initialize native Android plugins (StatusBar, Keyboard, external links)
+  useEffect(() => {
+    MobileService.init();
+  }, []);
+
+  // Android hardware back button handler
+  useEffect(() => {
+    const isAnyModalOpen = isSearchOpen || isCommandOpen || isVoiceOpen || authModalOpen || mobileMenuOpen;
+    return MobileService.setupBackButton({
+      isModalOpen: isAnyModalOpen,
+      closeModals: () => {
+        setIsSearchOpen(false);
+        setIsCommandOpen(false);
+        setIsVoiceOpen(false);
+        setAuthModalOpen(false);
+        setMobileMenuOpen(false);
+      },
+      canNavigateBack: currentView !== 'dashboard',
+      onNavigateBack: () => {
+        if (typeof window !== 'undefined' && window.history.length > 1) {
+          window.history.back();
+        } else {
+          handleNavigate('dashboard');
+        }
+      }
+    });
+  }, [isSearchOpen, isCommandOpen, isVoiceOpen, authModalOpen, mobileMenuOpen, currentView]);
 
   // Handle OAuth / Email confirmation / Recovery redirects cleanly without hash conflicts
   useEffect(() => {

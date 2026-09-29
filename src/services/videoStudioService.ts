@@ -15,7 +15,8 @@ import { safeFetchJson } from './videoStudioHttp';
 import { MEDICAL_VIDEO_LIBRARY } from '../data/medicalVideoLibraryData';
 import { AuthService } from './authService';
 
-const API_BASE = '/api/video-studio';
+const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+const API_BASE = API_ORIGIN ? `${API_ORIGIN}/api/video-studio` : '/api/video-studio';
 
 export class VideoStudioService {
   private static getAuthHeaders(): Record<string, string> {

@@ -48,7 +48,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   return (
     <nav 
       aria-label="Mobile Bottom Navigation"
-      className="lg:hidden fixed bottom-3 left-4 right-4 z-40 max-w-md mx-auto pointer-events-auto"
+      className="lg:hidden fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] left-4 right-4 z-40 max-w-md mx-auto pointer-events-auto"
     >
       <div className="bg-[rgba(10,36,74,0.85)] backdrop-blur-xl border border-[rgba(190,225,255,0.25)] border-t-[rgba(255,255,255,0.35)] rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.5)] p-1.5 flex items-center justify-around">
         {tabs.map((tab) => {

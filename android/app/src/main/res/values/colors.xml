@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MEDX Brand Color Palette -->
+    <color name="colorPrimary">#08AFC1</color>
+    <color name="colorPrimaryDark">#06172E</color>
+    <color name="colorAccent">#10b981</color>
+</resources>

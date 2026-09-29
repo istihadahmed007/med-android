@@ -5,6 +5,12 @@
 :root {
   color-scheme: dark;
 
+  /* Safe Area Insets for Android Notches & Dynamic Island */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+
   /* 4px-Based Spacing Scale Tokens */
   --space-1: 4px;
   --space-2: 8px;
