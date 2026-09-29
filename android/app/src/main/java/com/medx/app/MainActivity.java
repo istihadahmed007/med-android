@@ -48,16 +48,16 @@ public class MainActivity extends BridgeActivity {
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename);
 
-                        DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                        DownloadManager dm = (DownloadManager) MainActivity.this.getSystemService(Context.DOWNLOAD_SERVICE);
                         if (dm != null) {
                             dm.enqueue(request);
-                            Toast.makeText(getApplicationContext(), "Downloading " + filename, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this.getApplicationContext(), "Downloading " + filename, Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
                         try {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setData(Uri.parse(url));
-                            startActivity(intent);
+                            MainActivity.this.startActivity(intent);
                         } catch (Exception ignored) {
                         }
                     }
